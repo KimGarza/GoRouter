@@ -3,11 +3,17 @@ package main
 import (
 	"fmt"
 	"log"
+
+	"github.com/labstack/echo/v4"
 )
 
 func main() {
 
-	fmt.Println("Hello Mars!")
+	e := echo.New()
+	// e.Use(middleware.Logger())
+	// e.Use(middleware.Recover())
+	EstablishRoutes(e)
+	e.Logger.Fatal(e.Start(":8080"))
 
 	// take input of either port or protocol to upper, predict the other based on entered input
 	p, err := ProtocolSelect()
