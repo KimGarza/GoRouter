@@ -1,8 +1,8 @@
-package main
+package model
 
 type Protocol struct {
-	Name string
-	Port string
+	Name string `json:"name"`
+	Port string `json:"port"`
 	// TransportLayer string
 	// Purpse         string
 	// Security       string
