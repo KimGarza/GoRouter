@@ -13,3 +13,16 @@ type Protocol struct {
 	Description     string   `json:"description"`
 	LatestVersion   float64  `json:"latestVersion"`
 }
+
+type Device struct {
+	Name  string  `json:"name"`
+	Event []Event `json:"event"`
+}
+
+type Event struct {
+	Name            string   `json:"name"`
+	AverageMbps     int      `json:"averageMbps"`
+	ConnnectionType string   `json:"connectionType"`
+	Protocol        Protocol `json:"protocol"`
+	QoSPriority     string   `json:"qosPriority"`
+}

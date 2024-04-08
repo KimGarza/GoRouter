@@ -1,4 +1,4 @@
-package main
+package model
 
 type Router struct {
 	NAT                    string
@@ -17,4 +17,5 @@ type Router struct {
 	ConfigurationInterface string
 	Antennas               string
 	DMZ                    string
+	RouteTable             string
 }

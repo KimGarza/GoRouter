@@ -21,10 +21,6 @@ func GetProtocol(c echo.Context) error {
 	return c.JSON(http.StatusOK, result)
 }
 
-// func GetTransmissionType(c echo.Context) error {
-// 	return c.String(http.StatusOK, "transmission type details")
-// }
-
 // func GetInternetSpeed(c echo.Context) error {
 // 	return c.String(http.StatusOK, "mbps/gbps upload and download")
 // }
