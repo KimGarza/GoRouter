@@ -9,7 +9,7 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-// GET request using POST to avoid size limitation due to possible devices list being too large
+// GET request but using POST to avoid size limitation due to possible devices list being too large
 // body should contain both a list of device objects, and an internet speed, subtracts bandwidth used from total user has
 func PostTotalUsage(c echo.Context) error {
 
@@ -19,7 +19,7 @@ func PostTotalUsage(c echo.Context) error {
 		return c.String(http.StatusBadRequest, fmt.Sprintf("Failed to decode JSON: %v", err))
 	}
 
-	bandwidth := payload.Bandwidth
+	totalBandwidth := payload.Bandwidth
 	devices := payload.Devices
 
 	totalMbps := 0
@@ -36,7 +36,7 @@ func PostTotalUsage(c echo.Context) error {
 
 	fmt.Println("time to execute the nested for loop:", time.Since(startTime))
 
-	result := bandwidth - totalMbps
+	result := totalBandwidth - totalMbps
 
 	return c.JSON(http.StatusOK, result)
 }
